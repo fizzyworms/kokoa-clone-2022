@@ -1,5 +1,5 @@
 .no-mobile {
-  position: fixed;
+  position: fixed; /*Chat에서 스크롤 때문에 제대로 가려지지 않는 문제 해결  - position:fixed 설정*/
   z-index: 99;
   display: flex;
   justify-content: center;
