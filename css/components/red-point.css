@@ -1,0 +1,7 @@
+.screen-header__redpoint {
+  font-size: 40px;
+  color: tomato;
+  position: absolute;
+  right: -10px;
+  bottom: 15px;
+}

@@ -1,0 +1,237 @@
+#chat-screen {
+  background-color: rgb(196, 220, 240);
+  height: 100vh;
+  position: relative;
+}
+
+.alt-header__column span:last-child {
+  margin-left: 20px;
+}
+
+#chat-screen .alt-header {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+#chat-screen .status-bar {
+  z-index: 2;
+}
+#chat-screen .status-bar,
+#chat-screen .alt-header {
+  background-color: rgb(196, 220, 240);
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.main-chat {
+  margin-top: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.8s linear;
+}
+
+@keyframes fadeInPhoto {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.main-chat .message-row img:hover {
+  will-change: opacity;
+  animation: fadeInPhoto 2s ease-in-out infinite;
+}
+
+.chat__timestamp {
+  color: white;
+  background-color: rgb(179, 185, 187);
+  text-align: center;
+  padding: 10px 15px;
+  border-radius: 30px;
+  margin-bottom: 25px;
+}
+
+.message-row {
+  width: 100%;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.message-row img {
+  width: 50px;
+  height: 50px;
+  border-radius: 20px;
+  margin-right: 10px;
+}
+
+.message-author {
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.message__info {
+  display: flex;
+  align-items: flex-end;
+}
+
+@keyframes leftMessageBubble {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+.message-row__content .message__bubble {
+  animation: leftMessageBubble 1s ease-in-out;
+}
+
+@keyframes rightMessageBubble {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+.message-row--own .message__bubble {
+  animation: rightMessageBubble 1s ease-in-out;
+}
+
+.message__bubble {
+  background-color: white;
+  padding: 10px 13px;
+  border-radius: 15px;
+  border-top-left-radius: 0px;
+  margin-right: 5px;
+  font-size: 20px;
+}
+
+.message__time {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.message-row--own {
+  justify-content: flex-end;
+}
+
+.message-row--own .message__bubble {
+  background-color: var(--yellow);
+  border-radius: 15px;
+  border-top-right-radius: 0px;
+  margin-left: 5px;
+}
+
+.message-row--own .message__info {
+  flex-direction: row-reverse;
+}
+
+.reply {
+  position: fixed;
+  bottom: 300px;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 20px;
+  align-items: center;
+  box-sizing: border-box;
+  transition: all 2s ease-in-out;
+}
+
+.reply i {
+  opacity: 0.5;
+}
+.reply .reply__column:first-child {
+  width: 10%;
+}
+
+.reply .reply__column:last-child {
+  width: 90%;
+  position: relative;
+}
+
+.reply input {
+  height: 35px;
+  padding-left: 15px;
+  width: 100%;
+  border: var(--main-border);
+  border-radius: 20px;
+  transition: all 2s ease-in-out;
+}
+
+.reply__column:last-child > i,    /* direct children 선택 */
+.reply__column:last-child button {
+  position: absolute;
+  right: 3px;
+  bottom: 2px;
+}
+.reply__column:last-child > i {
+  top: 10px;
+  right: 50px;
+}
+.reply__column button {
+  background-color: var(--yellow);
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 20px;
+  align-items: center;
+}
+.reply__column button i {
+  opacity: 1;
+}
+.reply__column button:active,
+.reply__column button:focus {
+  outline: none;
+}
+
+.reply .reply__column:first-child,
+.reply .fa-meh-rolling-eyes,
+.reply button {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.reply:focus-within .reply__column:first-child,
+.reply:focus-within .fa-meh-rolling-eyes,
+.reply:focus-within button {
+  opacity: 0;
+}
+
+.reply input:focus {
+  /* reply input에 transition: all 2s ease-in-out; 꼭 넣어주기 */
+  width: 89vw;
+  transform: translateX(-10%) translateY(-700px);
+}
+
+.reply:focus-within {
+  transform: translateY(
+    800px
+  ); /* reply 요소를 아래로 800만큼 이동,   .reply에 transition: all 2s ease-in-out; 꼭 넣어주기 */
+}
