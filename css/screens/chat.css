@@ -218,7 +218,7 @@
   transition: opacity 0.3s ease-in-out;
 }
 
-.reply:focus-within .reply__column:first-child,
+.reply:focus-within .reply__column:first-child,   /* reply 안에 focus가 되어 있다면 다음의 것을 실행한다.*/
 .reply:focus-within .fa-meh-rolling-eyes,
 .reply:focus-within button {
   opacity: 0;
