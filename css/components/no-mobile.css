@@ -11,6 +11,7 @@
   font-size: 30px;
 }
 
+/* 미디어 타입 스크린, 스크린폭이 600보다 작으면 노모바일 적용 안하기  */
 @media screen and (max-width: 600px) {
   .no-mobile {
     display: none;
